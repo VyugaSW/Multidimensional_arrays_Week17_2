@@ -77,7 +77,8 @@ void Task2_searchOnName(char** arr,char*name, int s1) {
     system("cls");
     char a;
     for (int i = 0; i < s1;i++) {
-        if (arr[i] == name) {
+        cout << arr[i] << " " << name;
+        if (strcmp(arr[i],name) == 0) {
             cout << arr[i] << endl;
             cout << arr[i + 1] << endl;
         }
@@ -90,7 +91,7 @@ void Task2_searchOnNumber(char** arr, char* number, int s1) {
     system("cls");
     char a;
     for (int i = 1; i < s1; i++) {
-        if (arr[i] == number) {
+        if (strcmp(arr[i], number) == 0) {
             cout << arr[i-1] << endl;
             cout << arr[i] << endl;
         }
@@ -99,6 +100,16 @@ void Task2_searchOnNumber(char** arr, char* number, int s1) {
     cin >> a;
 }
 
+void Task2_show(char** arr,int s1) {
+    char a;
+    for (int j = 1; j < s1+1; j++) {
+        cout << arr[j-1] << " \n";
+        if (j % 2 == 0)
+            cout << endl;
+    }
+    cout << "Продолжить? - ";
+    cin >> a;
+}
 
 //Mode 0 - первое задание; Mode 1 - второе (Поменяйте значение мод (константы) на 0, чтобы проверить первое)
 #if (Mode == 0)
@@ -135,14 +146,16 @@ int main() {
     SetConsoleOutputCP(1251);
     int s1 = 0;
     char** arr = new char*[1];
-    int us;
-    bool flag = true;
-    int uss;
-    while (flag) {
+    int us; //Выбор
+    int uss; //Подвыбор (case 3)
+    char* buff = new char[256];
+    while (true) {
+        system("cls");
         cout << "Выберите опцию:\n\n";
         cout << "1 - ввести новое имя и телефон;\n";
         cout << "2 - изменить имя и телефон;\n";
         cout << "3 - поиск по номеру или телефону;\n";
+        cout << "4 - показать весь список.\n"; //Добавил для проверки и полноты програмыы
         cin >> us;
         switch (us) {
         case 1:
@@ -158,7 +171,6 @@ int main() {
             system("cls");
             cout << "Осуществить поиск по номеру телефона(1)/имени(2):\n";
             cin >> uss;
-            char* buff = new char[256];
             switch (uss) {
             case 1:
                 cout << "Введите искомый номер телефона: \n";
@@ -173,21 +185,10 @@ int main() {
                 Task2_searchOnName(arr, buff, s1);
             }
             break;
+        case 4:
+            system("cls");
+            Task2_show(arr, s1);
         }
-
-
-
-
-        //Проверки ради
-        for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < s1; j++) {
-                cout << arr[j] << " ";
-            }
-            cout << endl;
-        }
-
-
-
     }
 
 }
