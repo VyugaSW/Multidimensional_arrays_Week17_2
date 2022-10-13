@@ -72,7 +72,7 @@ void Task2_recin(char** arr, int &s1, int NumbName) {
     gets_s(newnumber, 256);
     arr[NumbName] = newnumber;
 }
-
+//Поиск по имени
 void Task2_searchOnName(char** arr,char*name, int s1) {
     system("cls");
     char a;
@@ -86,7 +86,7 @@ void Task2_searchOnName(char** arr,char*name, int s1) {
     cout << "Продолжить? - ";
     cin >> a;
 }
-
+//Поиск по номеру телефона
 void Task2_searchOnNumber(char** arr, char* number, int s1) {
     system("cls");
     char a;
@@ -99,7 +99,7 @@ void Task2_searchOnNumber(char** arr, char* number, int s1) {
     cout << "Продолжить? - ";
     cin >> a;
 }
-
+//Показ массива
 void Task2_show(char** arr,int s1) {
     char a;
     for (int j = 1; j < s1+1; j++) {
